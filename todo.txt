@@ -1,0 +1,50 @@
+Functionality To-do List:
+  1. When user clicks operators, they do not show in the canvas. Instead they are shown as "active" until the next numeral is entered.
+    - Determine if the button clicked is an operator or a numeral.
+    - If numeral, append to canvas.
+    - If operator,
+      - add active class to relevant button
+      - do not append char to canvas
+      - remove active class,
+        - when equals is clicked
+        - when another operator is clicked
+      - if a numeral was entered between operator clicks, solve
+        - if not, switch active operator without solving
+      - store history of current equation in the bg
+        - resolve it on relevant events and clear the bg cache
+  2. When user clicks '+/-', the current number is toggled from pos <=> neg.
+  3. When user clicks '%', the current number is converted to a percentage.
+  4. The clear button changes according to context.
+    a. When there is no operation, 'AC' is displayed
+    b. When in the middle of an operation, 'C' is displayed
+  5. If canvas contains a decimal, disable decimal button.
+  6. '00' button?
+  7. operation history?
+  8. show DOM button being clicked when keyboard event is used
+  9. scientific operators?
+
+
+  X. User can click buttons and the input is displayed in the canvas
+    - Handle clicks
+    - Display corresponding characters in canvas
+  X. User clicks '=' and the input is resolved
+    - Handle clicks
+    - Retrieve canvas value
+    - Parse string into equation
+    - Resolve equation
+    - Update canvas with result
+  X. When there is no canvas value, and decimal is clicked a '0' is maintained in the ones place.
+
+Modules:
+
+  UI Module
+  X Display corresponding characters in canvas
+  X Retrieve canvas value
+  X Update canvas with result
+
+  Data Module
+  X Parse string into equation
+  X Resolve equation
+
+  Controller Module
+  X Handle clicks

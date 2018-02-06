@@ -1,0 +1,33 @@
+{
+  "name": "calc",
+  "version": "1.0.0",
+  "description": "my calculator app",
+  "main": "src/js/app.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "author": "richie",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^0.28.9",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "standard": "^11.0.0-beta.0",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "extract-text-webpack-plugin": "^3.0.2",
+    "mathjs": "^3.20.1"
+  },
+  "eslintConfig": {
+    "globals": {
+      "math": true
+    }
+  }
+}

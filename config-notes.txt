@@ -1,0 +1,7 @@
+Description of this project configuration:
+• eslint for JS linting
+  - Style Guide: Standard@beta (beta vers resolved err messages)
+• webpack
+  - bundles JS modules
+  - compiles SCSS to CSS
+  - ExtractTextPlugin creates ./dist/css/app.bundle.css
