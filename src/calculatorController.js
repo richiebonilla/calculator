@@ -20,9 +20,9 @@ module.exports = (function () {
           memory.length = 0
           break
 
-        case 'backspace':
-          memory.pop()
-          break
+        // case 'backspace':
+        //   memory.pop()
+        //   break
 
         case 'replace':
           memory.length = 0

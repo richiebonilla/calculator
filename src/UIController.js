@@ -26,13 +26,13 @@ module.exports = (function () {
           canvas.textContent = value
           break
 
-        case 'backspace':
-          if (canvas.textContent.length > 1) {
-            canvas.textContent = canvas.textContent.slice(0, -1)
-          } else {
-            canvas.textContent = '0'
-          }
-          break
+        // case 'backspace':
+        //   if (canvas.textContent.length > 1) {
+        //     canvas.textContent = canvas.textContent.slice(0, -1)
+        //   } else {
+        //     canvas.textContent = '0'
+        //   }
+        //   break
 
         case 'clearer':
           canvas.textContent = '0'
@@ -48,23 +48,16 @@ module.exports = (function () {
     },
     operatorState: function (el, state) {
       if (state === 'activate') {
+        
+        // Remove active state from all operators
+        document.getElementById(DOMstrings.divide).classList.remove('active')
+        document.getElementById(DOMstrings.multiply).classList.remove('active')
+        document.getElementById(DOMstrings.subtract).classList.remove('active')
+        document.getElementById(DOMstrings.add).classList.remove('active')
+        
+        // Add active state to newly active operator
         document.getElementById(el).classList.add('active')
 
-        switch (el) {
-          case !DOMstrings.divide:
-            document.getElementById(DOMstrings.divide).classList.remove('active')
-            break
-          case !DOMstrings.multiply:
-            document.getElementById(DOMstrings.multiply).classList.remove('active')
-            break
-          case !DOMstrings.subtract:
-            document.getElementById(DOMstrings.subtract).classList.remove('active')
-            break
-          case !DOMstrings.add:
-            document.getElementById(DOMstrings.add).classList.remove('active')
-            break
-          default:
-        }
       } else if (state === 'deactivate') {
         document.getElementById(DOMstrings.divide).classList.remove('active')
         document.getElementById(DOMstrings.multiply).classList.remove('active')

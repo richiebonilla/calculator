@@ -13,7 +13,7 @@ const app = (function (calcCtrl, ui, is) {
 
       if (e.target.classList.contains('button')) {
         controller(btnLabel)
-        // console.log(e)
+        console.log(e)
       }
     })
 
@@ -25,13 +25,13 @@ const app = (function (calcCtrl, ui, is) {
       }
     })
 
-    // evaluates keydown for backspace
-    document.addEventListener('keydown', function (e) {
-      if (is.backspace(e)) {
-        controller(e.key)
-        // console.log(e)
-      }
-    })
+    // // evaluates keydown for backspace
+    // document.addEventListener('keydown', function (e) {
+    //   if (is.backspace(e)) {
+    //     controller(e.key)
+    //     // console.log(e)
+    //   }
+    // })
 
     // evaluates touchevents
     document.addEventListener('touchstart', function (e) {
@@ -106,7 +106,10 @@ const app = (function (calcCtrl, ui, is) {
 
     switch (key !== '') {
       case is.numeral(key):
-        key = parseInt(key) // converts all numeral inputs to num primitive
+
+        // key = parseInt(key) // converts all numeral inputs to num primitive 
+          // (not sure why I did this in the first place, but I commented it out so that my double zero button would work when I added it on 03-18-2018)
+      
         if (is.equals(lastInput)) {
           // if last input was equals, start fresh with this num keypress
           UICtrl.updateCanvas('replace', key)
@@ -140,12 +143,12 @@ const app = (function (calcCtrl, ui, is) {
         console.log(memory, inputHistory)
         break
 
-      case is.backspace(key):
-        UICtrl.updateCanvas('backspace')
-        calcCtrl.updateMemory('backspace')
-        calcCtrl.updateInputHistory(key)
-        console.log(memory, inputHistory)
-        break
+      // case is.backspace(key):
+      //   UICtrl.updateCanvas('backspace')
+      //   calcCtrl.updateMemory('backspace')
+      //   calcCtrl.updateInputHistory(key)
+      //   console.log(memory, inputHistory)
+      //   break
 
       case is.equals(key):
         if (!isNaN(lastMemory)) {
@@ -175,11 +178,13 @@ const app = (function (calcCtrl, ui, is) {
               appendOperator(key)
               console.log(memory, inputHistory)
             }
-          }
-          if (isNaN(lastMemory)) {
-            UICtrl.updateCanvas('backspace')
-            calcCtrl.updateMemory('backspace')
+          } else if (isNaN(lastMemory)) {
+            // UICtrl.updateCanvas('backspace')
+            // calcCtrl.updateMemory('backspace')
             // calcCtrl.updateInputHistory(key)
+            if (is.operator(lastMemory)) {
+              memory.pop()         
+            }
             appendOperator(key)
             console.log(memory, inputHistory, operationHistory)
           }
